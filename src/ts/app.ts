@@ -1,6 +1,8 @@
 import { supabase } from './config/supabase-config'
 import { ITicket } from './interface/ticket.interface'
 import { createCard } from './utils/card'
+import "../style/_reset.css"
+import "../style/styles.css"
 
 
 const elementsDOM = {
