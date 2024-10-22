@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    font-size: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    color: #0f0047;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    background-color: #ffffff;
+}
+
+input[type='date'],
+input[type='range'],
+input[type='text'],
+select {
+    width: 100%;
+    padding: .2em;
+    font-size: 1rem;
+
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #0f0047;
+}
+
+.form-invalid {
+    color: #da1717;
+    visibility: hidden;
+}
+
+.month-selected {
+    cursor: pointer;
+    width: auto;
+    margin-right: auto;
+}
+
+.icon {
+    font-size: 1.5rem !important;
+    cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+    font-size: 1.3rem !important;
+    cursor: pointer;
+}
+
+.btnCloseFormToggler {
+    color: #ffffff;
+    font-size: 1.5rem !important;
+    display: none !important;
+}
+
+option {
+    font-size: small;
+}
+
+@media(max-width: 500px) {
+
+    html {
+        font-size: 19px;
+    }
+
+    body {
+        display: flex !important;
+    }
+
+    input[type='date'],
+    input[type='range'],
+    input[type='text'],
+    select {
+        width: 100%;
+        padding: .2em;
+        font-size: 1rem;
+
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #352513;
+    }
+}
