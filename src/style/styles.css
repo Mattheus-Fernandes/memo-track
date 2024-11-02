@@ -72,6 +72,10 @@ header h1 {
     color: #e7e5ff;
 }
 
+.sidebar__button--edit {
+    display: none;
+}
+
 .sidebar__footer {
     display: none;
 }

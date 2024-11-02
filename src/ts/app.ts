@@ -6,7 +6,6 @@ import "../style/styles.css"
 
 
 const elementsDOM = {
-
     selectMonthFilter: document.getElementById('selectMonthFilter') as HTMLSelectElement,
     sidebar: document.getElementById('sidebar') as HTMLDivElement,
     contentHub: document.getElementById('contentHub') as HTMLDivElement,
@@ -215,8 +214,10 @@ class App {
         setTimeout(() => {
             elementsDOM.btnCloseFormToggler.style.setProperty('display', 'none', 'important')
             elementsForm.vtRangeValue.textContent = ''
-            elementsForm.myForm.reset()
             elementsForm.formInvalid.style.visibility = 'hidden'
+            elementsForm.btnEdit.style.display = 'none'
+            elementsForm.btnInsert.style.display = 'block'
+            elementsForm.myForm.reset()
         }, 500)
     }
 
@@ -254,6 +255,9 @@ class App {
                 this.showFormToggler()
             }
 
+            elementsForm.btnEdit.style.display = 'block'
+            elementsForm.btnInsert.style.display = 'none'
+
             const id = Number(target.closest('.contentHub__card-body')?.children[4].textContent)
 
             const { data: tickets = [], error } = await supabase
@@ -276,7 +280,9 @@ class App {
                 elementsForm.vtRangeValue.textContent = String(e.vtUsed)
             })
 
-            elementsForm.btnEdit.addEventListener('click', () => this.editSave(id))
+            elementsForm.btnEdit.addEventListener('click', (e) => {
+                this.editSave(id) 
+            })
 
         } catch (error) {
             console.log(error)
