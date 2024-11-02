@@ -5,24 +5,24 @@ export const createCard = (ticket: ITicket) => {
 
     const card =
         `
-            <div class="card">
-                <div class="card-line"></div>
-                <div class="card-body">
-                    <div class="dateAndActions">
-                        <h3 id="textDay">Data: ${ticket.date} </h3>
-                        <div class="card-actions">
-                            <span class="btnCardEdit material-symbols-outlined edit-icon">
+            <div class="contentHub__card">
+                <div class="contentHub__card-line"></div>
+                <div class="contentHub__card-body">
+                    <div class="contentHub__date-actions">
+                        <h3 id="textDay" class="contentHub__day">Data: ${ticket.date} </h3>
+                        <div class="contentHub__card-actions">
+                            <span class="contentHub__btn-edit contentHub__btn--edit-icon material-symbols-outlined">
                                 edit_note
                             </span>
-                            <span class="btnCardDelete material-symbols-outlined delete-icon">
+                            <span class="contentHub__btn-delete contentHub__btn--delete-icon material-symbols-outlined">
                                 delete
                             </span>
                         </div>  
                     </div>
                     <p id="textCustomer">Edifício: ${ticket.customer}</p>
-                    <p id="textMaintenanceOrCall">${workOrderDescription(ticket.workOrder)}</p>
+                    <p id="textMaintenanceOrCall"">${workOrderDescription(ticket.workOrder)}</p>
                     <p id="textVrUsed">VT utilizado(s): ${ticket.vtUsed}</p>
-                    <p class="getId">${ticket.id}</p>
+                    <p class="contentHub__get-id">${ticket.id}</p>
                 </div>
             </div>
            `;

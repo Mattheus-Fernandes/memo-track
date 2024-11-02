@@ -8,14 +8,9 @@
         content="width=device-width, initial-scale=1.0"
     >
     <title>MemoTrack</title>
-    <link
-        rel="stylesheet"
-        href="style/_reset.css"
-    >
-    <link
-        rel="stylesheet"
-        href="style/styles.css"
-    >
+    <link rel="stylesheet" href="output.css">
+    <!-- <link rel="stylesheet" href="style/_reset.css">
+    <link rel="stylesheet" href="style/styles.css"> -->
 
     <link
         rel="stylesheet"
@@ -31,7 +26,7 @@
 
         <span
             id="btnCloseFormToggler"
-            class="material-symbols-outlined btnCloseFormToggler"
+            class="material-symbols-outlined header__btn-close-form"
         >
             close
         </span>
@@ -42,40 +37,43 @@
             class="sidebar"
             id="sidebar"
         >   
-            <h2>Despesa com condução</h2>
+            <h2 class="sidebar__title">Despesa com condução</h2>
 
-            <span id="formInvalid" class="form-invalid">Preencha todos os campos!</span>
+            <span id="formInvalid" class="sidebar__form-invalid">Preencha todos os campos!</span>
 
-            <form>
+            <form class="sidebar__form">
                 <!--Item Date-->
-                <div class="item">
-                    <label for="date">Dia*</label>
+                <div class="sidebar__item">
+                    <label for="date" class="sidebar__label">Dia*</label>
                     <input
                         type="date"
                         id="date"
+                        class="sidebar__input"
                     >
                 </div>
                 <!--Item Customer-->
-                <div class="item">
-                    <label for="customer">Cliente*</label>
+                <div class="sidebar__item">
+                    <label for="customer" class="sidebar__label">Cliente*</label>
                     <input
                         type="text"
                         id="customer"
+                        class="sidebar__input"
                         placeholder="Nome do edifício"
                         autocomplete="off"
                     >
                 </div>
                 <!--Item Work Order-->
-                <div class="item">
-                    <label for="workOrder">Ordem de trabalho*</label>
+                <div class="sidebar__item">
+                    <label for="workOrder" class="sidebar__label">Ordem de trabalho*</label>
                     <select
                         name="workOrder"
                         id="workOrder"
+                        class="sidebar__select"
                     >
                         <option
                             selected
                             value=""
-                        >-- Selecione --</option>
+                        >-- selecione --</option>
                         <option value="1">Manutenção</option>
                         <option value="2">Chamado</option>
                         <option value="3">Serviço</option>
@@ -83,11 +81,12 @@
                     </select>
                 </div>
                 <!--Item Vt Used-->
-                <div class="item">
-                    <label for="vtUsed">VT Gasto* <span id="vtRangeValue"></span></label>
+                <div class="sidebar__item">
+                    <label for="vtUsed" class="sidebar__label">VT Gasto* <span id="vtRangeValue"></span></label>
                     <input
                         type="range"
                         id="vtUsed"
+                        class="sidebar__input"
                         value="0"
                         min="0"
                         max="10"
@@ -96,12 +95,12 @@
 
                 <button
                     type="button"
-                    class="btnInsert"
+                    class="sidebar__button"
                     id="btnInsert"
                 >Salvar</button>
             </form>
             
-            <div class="sidebar-footer"></div>
+            <div class="sidebar__footer"></div>
         </div>
 
         <!--Content Hub-->
@@ -110,14 +109,14 @@
             id="contentHub"
         >
             <!--Content Hub Header-->
-            <div class="contentHub-header">
+            <div class="contentHub__header">
                 <!--Filter and Insert-->
-                <div>
-                    <div class="filter">
-                        <span>Filtro</span>
+                <div class="contentHub__controls">
+                    <div class="contentHub__filter">
+                        <label for="selectMonthFilter" class="contentHub__filter-label">Filtro</label>
                         <select
                             id="selectMonthFilter"
-                            class="month-selected"
+                            class="contentHub__month-select"
                         >
                             <option value="01">Janeiro</option>
                             <option value="02">Fevereiro</option>
@@ -136,15 +135,15 @@
 
                     <span
                         id="btnFormToggler"
-                        class="material-symbols-outlined icon btnFormToggler"
+                        class="material-symbols-outlined contentHub__icon contentHub__icon--form-toggler"
                     >
                         add
                     </span>
                 </div>
                 <!--Scanner and Delete-->
-                <div>
+                <div class="contentHub__actions">
                     <span
-                        class="material-symbols-outlined icon"
+                        class="material-symbols-outlined contentHub__icon contentHub__icon--gen-pdf"
                         id="btnGenPdf"
                     >
                         task
@@ -152,7 +151,7 @@
 
                     <span
                         id="btnClearAll"
-                        class="material-symbols-outlined icon"
+                        class="material-symbols-outlined contentHub__icon contentHub__icon--clear-all"
                     >
                         delete
                     </span>
@@ -161,7 +160,7 @@
 
             <!--Content Hub Body-->
             <div
-                class="contentHub-body"
+                class="contentHub__body"
                 id="contentHubBody"
             >
             </div>
@@ -172,14 +171,14 @@
             id="modal"
             class="modal"
         >
-            <div class="modal-header">
-                <h2>Excluir todos</h2>
+            <div class="modal__header">
+                <h2 class="modal__title">Excluir todos</h2>
             </div>
-            <div class="modal-body">
+            <div class="modal__body">
                 <p>Tem certeza que deseja excluir todos os registros do mês <span id="deleteMonth"></span>?</p>
-                <div class="modal-actions">
-                    <button id="btnDeleteYes">Sim</button>
-                    <button id="btnDeleteNo">Não</button>
+                <div class="modal__actions">
+                    <button id="btnDeleteYes" class="modal__button modal__button--confirm">Sim</button>
+                    <button id="btnDeleteNo" class="modal__button modal__button--cancel">Não</button>
                 </div>
             </div>
         </div>

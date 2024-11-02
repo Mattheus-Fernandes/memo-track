@@ -22,45 +22,41 @@ body {
     background-color: #ffffff;
 }
 
-input[type='date'],
-input[type='range'],
-input[type='text'],
-select {
-    width: 100%;
-    padding: .2em;
-    font-size: 1rem;
-
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #0f0047;
-}
-
-.form-invalid {
+.sidebar__form-invalid {
     color: #da1717;
     visibility: hidden;
 }
 
-.month-selected {
+.sidebar__input,
+.sidebar__select {
+    width: 100%;
+    padding: .4em;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #0f0047;
+    cursor: pointer;
+}
+
+.contentHub__month-select {
     cursor: pointer;
     width: auto;
     margin-right: auto;
+    outline: none;
+    border: 1px solid #0f0047;
+    border-radius: 5px;
+    padding: .2em;
 }
 
-.icon {
+.contentHub__icon {
     font-size: 1.5rem !important;
     cursor: pointer;
 }
 
-.edit-icon,
-.delete-icon {
+.contentHub__btn--edit-icon,
+.contentHub__btn--delete-icon {
     font-size: 1.3rem !important;
     cursor: pointer;
-}
-
-.btnCloseFormToggler {
-    color: #ffffff;
-    font-size: 1.5rem !important;
-    display: none !important;
 }
 
 option {
@@ -77,10 +73,8 @@ option {
         display: flex !important;
     }
 
-    input[type='date'],
-    input[type='range'],
-    input[type='text'],
-    select {
+    .sidebar__input,
+    .sidebar__select {
         width: 100%;
         padding: .2em;
         font-size: 1rem;
@@ -88,5 +82,9 @@ option {
         outline: none;
         border-radius: 5px;
         border: 1px solid #352513;
+    }
+
+    .contentHub__month-select {
+        font-size: .9rem;
     }
 }

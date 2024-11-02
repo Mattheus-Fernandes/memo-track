@@ -10,6 +10,12 @@ header h1 {
     color: #ffffff;
 }
 
+.header__btn-close-form {
+    display: none !important;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
 .container {
     height: 100%;
     width: 100%;
@@ -35,22 +41,22 @@ header h1 {
     transition: all .5s;
 }
 
-.container .sidebar h2 {
+.sidebar__title {
     font-size: 1.2rem;
 }
 
-.container .sidebar form {
+.sidebar__form {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.container .sidebar form .item label {
+.sidebar__label {
     display: block;
     margin-bottom: .2em;
 }
 
-.container .sidebar form .btnInsert {
+.sidebar__button {
     font-size: 1.2rem;
     background-color: transparent;
     padding: .4em 0;
@@ -61,12 +67,12 @@ header h1 {
     transition: all .8s;
 }
 
-.container .sidebar form .btnInsert:hover {
+.sidebar__button:hover {
     background-color: #0f0047;
     color: #e7e5ff;
 }
 
-.container .sidebar .sidebar-footer {
+.sidebar__footer {
     display: none;
 }
 
@@ -87,7 +93,7 @@ header h1 {
     transition: all .5s;
 }
 
-.container .contentHub .contentHub-header {
+.contentHub__header {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -97,34 +103,37 @@ header h1 {
     border-bottom: 1px solid #0f004762;
 }
 
-.container .contentHub .contentHub-header div:first-child {
+.contentHub__controls {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
-.container .contentHub .contentHub-header div:first-child .filter {
+.contentHub__filter {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.container .contentHub .contentHub-header div:first-child .filter span {
+.contentHub__filter-label {
     font-size: .8rem;
     align-self: self-start;
 }
 
-.container .contentHub .contentHub-header div:first-child .btnFormToggler{
+.contentHub__icon.contentHub__icon--form-toggler {
     display: none;
 }
 
-.container .contentHub .contentHub-header div:last-child {
+.contentHub__actions {
     display: flex;
     align-items: center;
     gap: 2em;
 }
 
-.container .contentHub .contentHub-body {
+.contentHub__body {
     height: 80%;
 
     display: flex;
@@ -135,18 +144,17 @@ header h1 {
     overflow: auto;
 }
 
-.container .contentHub .contentHub-body .card {
+.contentHub__card {
     width: 20%;
     height: auto;
     padding: .3em;
     overflow: hidden;
+    cursor: default;
 
     display: flex;
-    
-    cursor: default;
 }
 
-.container .contentHub .contentHub-body .card .card-line {
+.contentHub__card-line {
     height: 100%;
     width: 2%;
     background-color: #0f0047;
@@ -154,7 +162,7 @@ header h1 {
     border-bottom-left-radius: 5px;
 }
 
-.container .contentHub .contentHub-body .card .card-body {
+.contentHub__card-body {
     width: 100%;
     height: 100%;
     padding: .5em;
@@ -165,29 +173,28 @@ header h1 {
     border-bottom-left-radius: 0;
 }
 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions {
+.contentHub__date-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container .contentHub .contentHub-body .card .card-body h3 {
+.contentHub__day {
     font-weight: 400;
 }
 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions {
+.contentHub__card-actions {
     display: flex;
     gap: .5em;
 }
 
-
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardEdit, 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardDelete  {
+.contentHub__btn-edit,
+.contentHub__btn-delete {
     position: relative;
 }
 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardEdit:hover::after,
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardDelete:hover::after  {
+.contentHub__btn-edit:hover::after,
+.contentHub__btn-delete:hover::after {
     position: absolute;
     top: 29px;
     padding: .5em;
@@ -199,17 +206,17 @@ header h1 {
     background-color: #1b1b1bf8;
 }
 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardEdit:hover::after {
+.contentHub__btn-edit:hover::after {
     content: 'Editar';
     left: -20%;
 }
 
-.container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions .btnCardDelete:hover::after {
+.contentHub__btn-delete:hover::after {
     content: 'Excluir';
     left: -100%;
-} 
+}
 
-.container .contentHub .contentHub-body .card .card-body .getId {
+.contentHub__get-id {
     display: none;
 }
 
@@ -219,7 +226,7 @@ header h1 {
     MODAL
 
 */
-.container .modal{
+.container .modal {
     width: 30%;
     display: none;
     position: fixed;
@@ -231,30 +238,30 @@ header h1 {
     overflow: hidden;
 }
 
-.container .modal-header {
+.modal__header {
     background-color: #0f0047;
     color: #f1f1ff;
     padding: 1em;
 }
 
-.container .modal-header h2 {
+.modal__title {
     font-weight: 400;
     color: #ffffff;
 }
 
-.container .modal-body {
+.modal__body {
     padding: 1em;
     background-color: #d1ceff;
 }
 
-.container .modal-actions {
+.modal__actions {
     margin-top: 2em;
     display: flex;
     justify-content: flex-end;
     gap: 1em;
 }
 
-.container .modal-actions button {
+.modal__button {
     font-size: .9rem;
     background-color: transparent;
     padding: .4em .8em;
@@ -265,20 +272,21 @@ header h1 {
     transition: all .8s;
 }
 
-.container .modal-actions button:first-child {
+.modal__button--confirm {
     background-color: #e32828;
     color: #f1f1ff;
     border: 1px solid #e32828;
 }
 
-.container .modal-actions button:last-child {
+.modal__button--cancel {
     border: 1px solid #0f0047;
 }
 
-.container .modal-actions button:last-child:hover {
+.modal__button--cancel:hover {
     background-color: #0f0047;
     color: #f1f1ff;
 }
+
 
 /*
 
@@ -326,11 +334,11 @@ header h1 {
         gap: .3em;
     }
 
-    .container .sidebar.showSidebar {
+    .container .sidebar.sidebar--show {
         top: 0;
     }
 
-    .container .sidebar .sidebar-footer {
+    .sidebar__footer {
         display: block;
         position: relative;
         padding: 2em;
@@ -341,7 +349,7 @@ header h1 {
         width: 100%;
     }
 
-    .container .contentHub .contentHub-header {
+    .contentHub__header {
         position: sticky;
         top: 0;
         z-index: 1;
@@ -351,20 +359,20 @@ header h1 {
         flex-direction: column;
         gap: 1em;
     }
-    
-    .container .contentHub .contentHub-header div:first-child {
+
+    .contentHub__filter {
         width: 100%;
     }
-    
-    .container .contentHub .contentHub-header div:first-child .btnFormToggler{
+
+    .contentHub__icon.contentHub__icon--form-toggler {
         display: block;
     }
 
-    .container .contentHub .contentHub-header div:last-child {
+    .contentHub__actions {
         width: 100%;
     }
-    
-    .container .contentHub .contentHub-body {
+
+    .contentHub__body {
         flex-direction: column;
         flex-wrap: nowrap;
         min-height: 100vh;
@@ -372,16 +380,23 @@ header h1 {
         width: 100%;
     }
 
-    .container .contentHub .contentHub-body .card {
+    .contentHub__card {
         width: 100%;
         height: auto;
     }
 
-    .container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions{
+    .contentHub__card-actions {
         gap: 2em;
     }
 
-    .container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions span{
+    .contentHub__btn-edit,
+    .contentHub__btn-delete {
+        position: initial;
+        cursor: none;
+        font-size: 1.5rem !important;
+    }
+
+    .container .contentHub .contentHub-body .card .card-body .dateAndActions .card-actions span {
         font-size: 1.7rem;
     }
 
@@ -389,11 +404,11 @@ header h1 {
         width: 85%;
     }
 
-    .container .modal-header h2 {
+    .modal__title {
         font-size: 1.1rem;
     }
 
-    .container .modal-body {
+    .modal__body {
         font-size: .9rem;
     }
 }
