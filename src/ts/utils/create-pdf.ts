@@ -5,10 +5,10 @@ import {jsPDF} from "jspdf"
 export const createPdf = (tickets: TicketsListResponse) => {
     const doc = new jsPDF()
     
+    addWatermark(doc)
     addHeader(doc)
     addColumnTitle(doc)
     addTickets(doc, tickets)
-
     doc.save('Mattheus-Fernandes.pdf')
 }
 
@@ -52,3 +52,18 @@ const addTickets = (doc: jsPDF, tickets: TicketsListResponse) => {
         }
     )
 }
+
+const addWatermark = (doc: jsPDF) => {
+    const watermarkText = 'Memo Track' 
+    const fontSize = 60;
+    const yOffset = doc.internal.pageSize.height / 2; 
+    const xOffset = doc.internal.pageSize.width / 2; 
+
+    doc.setTextColor(242, 241, 243); 
+    doc.setFontSize(fontSize);
+    doc.text(watermarkText, xOffset, yOffset, {
+        align: 'center',
+        baseline: 'middle',
+        angle: 45 
+    });
+};
