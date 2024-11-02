@@ -3,6 +3,8 @@ import { ITicket } from './interface/ticket.interface'
 import { createCard } from './utils/card'
 import "../style/_reset.css"
 import "../style/styles.css"
+import { createPdf } from './utils/create-pdf'
+import { TicketsListResponse } from './types/tickets-list-response'
 
 
 const elementsDOM = {
@@ -38,11 +40,11 @@ const elementsForm = {
 class App {
 
     private date: string = ''
+    private listTickets: TicketsListResponse = []
 
     constructor() {
         this.startWithMonth()
         this.filterByMonth()
-        this.generatePdf()
 
         elementsForm.vtUsed.addEventListener('input', () => {
             elementsForm.vtRangeValue.textContent = elementsForm.vtUsed.value
@@ -57,6 +59,7 @@ class App {
         elementsDOM.btnDeleteNo.addEventListener('click', () => this.cleanAllNo())
         elementsDOM.btnFormToggler.addEventListener('click', () => this.showFormToggler())
         elementsDOM.btnCloseFormToggler.addEventListener('click', () => this.closeFormToggler())
+        elementsDOM.btnGenPdf.addEventListener('click', () => this.generatePdf())
     }
 
     private async onClickSave() {
@@ -139,15 +142,15 @@ class App {
                 elementsDOM.contentHubBody.insertAdjacentHTML('beforeend', cardHTML)
             })
 
+            this.listTickets = orderedTickets as TicketsListResponse
+
         } catch (error) {
             console.log(error)
         }
     }
 
     private async generatePdf() {
-        elementsDOM.btnGenPdf.addEventListener('click', () => {
-
-        })
+       createPdf(this.listTickets)
     }
 
     private clearAll(date: string) {
