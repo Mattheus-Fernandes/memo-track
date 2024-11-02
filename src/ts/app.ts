@@ -157,10 +157,7 @@ class App {
         elementsDOM.overlay.style.zIndex = '1'
         elementsDOM.contentHub.style.filter = 'blur(5px)'
         elementsDOM.sidebar.style.filter = 'blur(5px)'
-
         elementsDOM.deleteMonth.textContent = date
-
-        console.log('ok')
     }
 
     private async cleanAllConfirm(date: string) {
@@ -196,7 +193,7 @@ class App {
     }
 
     private showFormToggler() {
-        elementsDOM.sidebar.classList.add('showSidebar')
+        elementsDOM.sidebar.classList.add('sidebar--show')
 
         window.scrollTo({
             top: 0,
@@ -214,20 +211,21 @@ class App {
     }
 
     private closeFormToggler() {
-        elementsDOM.sidebar.classList.remove('showSidebar')
+        elementsDOM.sidebar.classList.remove('sidebar--show')
         setTimeout(() => {
             elementsDOM.btnCloseFormToggler.style.setProperty('display', 'none', 'important')
             elementsForm.vtRangeValue.textContent = ''
             elementsForm.myForm.reset()
+            elementsForm.formInvalid.style.visibility = 'hidden'
         }, 500)
     }
 
     private async deleteCard(event: Event) {
         const target = event.target as HTMLSpanElement
-        const card = target.closest('.card')
+        const card = target.closest('.contentHub__card')
 
-        const btnDelete = target.classList.contains('btnCardDelete')
-        const id = Number(target.closest('.card-body')?.children[4].textContent)
+        const btnDelete = target.classList.contains('contentHub__btn-delete')
+        const id = Number(target.closest('.contentHub__card-body')?.children[4].textContent)
 
         if (btnDelete) {
             card?.remove()
@@ -248,7 +246,7 @@ class App {
         try {
 
             const target = event.target as HTMLSpanElement
-            const btnEdit = target.classList.contains('btnCardEdit')
+            const btnEdit = target.classList.contains('contentHub__btn-edit')
 
             if (!btnEdit) {
                 return
@@ -256,7 +254,7 @@ class App {
                 this.showFormToggler()
             }
 
-            const id = Number(target.closest('.card-body')?.children[4].textContent)
+            const id = Number(target.closest('.contentHub__card-body')?.children[4].textContent)
 
             const { data: tickets = [], error } = await supabase
                 .from('usedTickets')
