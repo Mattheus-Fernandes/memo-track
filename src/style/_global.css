@@ -1,0 +1,56 @@
+.form-invalid {
+    color: #da1717;
+    visibility: hidden;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: .2em;
+}
+
+.form-input {
+    width: 100%;
+    padding: .4em;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #0f0047;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.form-select {
+    cursor: pointer;
+    width: auto;
+    margin-right: auto;
+    outline: none;
+    border: 1px solid #0f0047;
+    border-radius: 5px;
+    padding: .2em;
+}
+
+.action-icon {
+    font-size: 1.5rem !important;
+    cursor: pointer;
+}
+
+.card-btn {
+    font-size: 1.3rem !important;
+    cursor: pointer;
+}
+
+@media(max-width: 500px) {
+    .form-input {
+        width: 100%;
+        padding: .2em;
+        font-size: 1rem;
+
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #352513;
+    }
+
+    .form-select {
+        font-size: .9rem;
+    }
+}
